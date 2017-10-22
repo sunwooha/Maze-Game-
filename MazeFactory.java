@@ -13,7 +13,7 @@ public class MazeFactory{
     }
 
     // Opens the text file that contains the layout of the map
-    public void openFile(){
+    private void openFile(){
         try{
             s = new Scanner(new File(maze.file));
         }
@@ -23,7 +23,7 @@ public class MazeFactory{
     }
 
     // Reads all of the input from the file and then fills the array
-    public void readFile(){
+    private void readFile(){
         map = new String[maze.getDimension()];
         while(s.hasNext()){
             for(int i = 0; i < maze.getDimension(); i++){
@@ -33,7 +33,7 @@ public class MazeFactory{
     }
 
     // Closes the scanner
-    public void closeFile(){
+    private void closeFile(){
         s.close();
     }
 
@@ -60,17 +60,21 @@ public class MazeFactory{
             for(int j = 0; j < maze.getDimension(); j++){
                 int exitCount = 0;
                 if(Integer.parseInt(currentRow.substring(j,j+1)) == 1){
+                    // east neighbor
                     if(j != (maze.getDimension() - 1) && Integer.parseInt(currentRow.substring(j+1,j+2)) == 1){
                         exitCount++;
                     }
+                    // west neighbor
                     if(j != 0 && Integer.parseInt(currentRow.substring(j-1,j)) == 1){
                         exitCount++;
                     }
+                    // south neighbor
                     if(prevRow && !(previousRow.equals(empty))){
                         if(Integer.parseInt(previousRow.substring(j,j+1)) == 1 ){
                             exitCount++;
                         }
                     }
+                    // north neighbor
                     if(nRow && !(nextRow.equals(empty))){
                         if(Integer.parseInt(nextRow.substring(j,j+1)) == 1){
                             exitCount++;

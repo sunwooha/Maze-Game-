@@ -20,7 +20,8 @@ public class Main{
         j.drawRoom();*/
         String level0 = "/Users/jenniferha/Documents/New College/3rd Year/Fall 2017/Object Oriented Design/MazeGame/level0.txt";
         String level1 = "/Users/jenniferha/Documents/New College/3rd Year/Fall 2017/Object Oriented Design/MazeGame/level1.txt";
-        Maze m = new Maze(12, level1);
+        String level2 = "/Users/jenniferha/Documents/New College/3rd Year/Fall 2017/Object Oriented Design/MazeGame/level2.txt";
+        Maze m = new Maze(12, level2);
         for(int i = 0; i < m.getDimension(); i++){
             System.out.println(m.getMaze()[i]);
         }

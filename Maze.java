@@ -12,7 +12,7 @@ public class Maze{
     public Maze(int size, String f){
         this.dimension = size;
         this.file = f;
-        //this.mazeBoard = new Room[dimension][dimension];
+        this.mazeBoard = new Room[dimension][dimension];
         mFactory = new MazeFactory(this);
         mFactory.makeMaze();
     }
@@ -33,7 +33,7 @@ public class Maze{
     }
 
     // Adds the player onto the maze
-    /*public void addPlayer(int x, int y){
+    public void addPlayer(int x, int y){
         mazeBoard[x][y].putPlayerHere();
-    }*/
+    }
 }
