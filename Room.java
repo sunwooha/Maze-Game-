@@ -36,27 +36,33 @@ public class Room{
         this.directions = new String[exits];
         switch(this.orientation){
             case 1:
-                for(int i = exits - 1; i < exits; i++){
+                for(int i = 0; i < exits; i++){
                     directions[i] = orientation1[i];
                 }
+                break;
             case 2:
-                for(int i = exits - 1; i < exits; i++){
+                for(int i = 0; i < exits; i++){
                     directions[i] = orientation2[i];
                 }
+                break;
             case 3:
-                for(int i = exits - 1; i < exits; i++){
+                for(int i = 0; i < exits; i++){
                     directions[i] = orientation3[i];
                 }
+                break;
             case 4:
-                for(int i = exits - 1; i < exits; i++){
+                for(int i = 0; i < exits; i++){
                     directions[i] = orientation4[i];
                 }
+                break;
             case 5:
                 directions[0] = "North";
                 directions[1] = "South";
+                break;
             case 6:
                 directions[0] = "East";
                 directions[1] = "West";
+                break;
         }
     }
 
@@ -89,6 +95,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                     case 2:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -105,6 +112,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                     case 3:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -121,6 +129,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 4:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -137,8 +146,10 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                         
                 }
+                break;
             case 2:
                 switch(orientation){
                     case 1:
@@ -157,6 +168,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                     case 2:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -173,6 +185,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 3:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -189,6 +202,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                      case 4:
                         System.out.println("+-------            -------+");
                         System.out.println("|                          |");
@@ -205,6 +219,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                     case 5:
                         System.out.println("+-------            -------+");
                         System.out.println("|                          |");
@@ -221,6 +236,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 6:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -237,7 +253,9 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
+                        break;
                 }
+                break;
             case 3:
                 switch(orientation){
                     case 1:
@@ -256,6 +274,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 2:
                         System.out.println("+--------------------------+");
                         System.out.println("|                          |");
@@ -272,6 +291,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 3:
                         System.out.println("+-------            -------+");
                         System.out.println("|                          |");
@@ -288,6 +308,7 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+-------            -------+");
+                        break;
                     case 4:
                         System.out.println("+-------            -------+");
                         System.out.println("|                          |");
@@ -304,7 +325,9 @@ public class Room{
                         System.out.println("|                          |");
                         System.out.println("|                          |");
                         System.out.println("+--------------------------+");
-                }    
+                        break;
+                }   
+                break; 
             case 4:
                 System.out.println("+-------            -------+");
                 System.out.println("|                          |");
@@ -321,6 +344,7 @@ public class Room{
                 System.out.println("|                          |");
                 System.out.println("|                          |");
                 System.out.println("+-------            -------+");
+                break;
         }   
     }
 }
