@@ -3,7 +3,7 @@ public class Room{
     private String[] directions;
     private boolean playerHere;
     private boolean visited;
-    private int orientation;
+    public int orientation;
     final String[] orientation1 = {"North", "East", "South", "West"};
     final String[] orientation2 = {"East", "South", "West", "North"};
     final String[] orientation3 = {"South", "West", "North", "East"};
@@ -33,6 +33,9 @@ public class Room{
         //orientation can only be either 1, 2, 3, 4, or 5, 6
         //if it is 5, there are two exits at North and South
         //if it is 6, there are two exits at East and West
+        if (exits == 0){
+            return;
+        }
         this.directions = new String[exits];
         switch(this.orientation){
             case 1:
@@ -77,6 +80,23 @@ public class Room{
     public void drawRoom(){
         //will use the directions[] array to draw the rooms in ascii
         switch(exits){
+            case 0:
+                System.out.println("+--------------------------+");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("|                          |");
+                System.out.println("+--------------------------+");
+                break;
             case 1:
                 switch(orientation){
                     case 1:
