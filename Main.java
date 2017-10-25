@@ -88,6 +88,7 @@ public class Main{
 						System.out.print(r.getDirections()[n]);
 					}
 				}
+				System.out.println();
 			}
 			if(playerName.equals("human")){
 				move = sc.next().charAt(0);
