@@ -18,6 +18,9 @@ public class Main{
         int x = m.getX();
         int y = m.getY();
 		Room r = m.mazeBoard[x][y];
+		String playerName = "";
+		Random random = new Random();
+		char move = 'z';
        
         for(int i = 0; i < m.getDimension(); i++){
             System.out.println(m.getMaze()[i]);
@@ -28,20 +31,23 @@ public class Main{
         char playerType = sc.next().charAt(0);     
         
         if(playerType == 'H'|| playerType == 'h'){
-        	play = new HumanPlayer();  
+			play = new HumanPlayer(); 
+			playerName = "human";
         	System.out.println("Welcome to my maze, human!" + 
         			"\n" + "Enter 'N' to travel North, 'S' to travel South," +
         			"\n" + "'E' to travel East, and 'W' to travel West." +
         			"\n" + "Try not to lose your way!");
         }
         else if(playerType == 'M' || playerType == 'm'){
-        	play = new ComputerAI();
+			play = new ComputerAI();
+			playerName = "AI";
         	System.out.println("Welcome to my maze, fellow machine!" + 
         			"\n" + "Travel through the maze's rooms, and, most importantly," +
         			"\n" + "find its end!");
         }
         else{
-        	play = new HumanPlayer();
+			play = new HumanPlayer();
+			playerName = "human";
         	System.out.println("You didn't answer my question correctly, human.");      
         	for(int i = 0; i < 5; i++){
         		if(playerType != 'H' || playerType != 'h' || playerType != 'M' || playerType != 'm'){
@@ -51,9 +57,15 @@ public class Main{
         }
         
 		m.drawMazeRoom();
-        long startTime = System.nanoTime();
+
+		long startTime = System.nanoTime();
         while(!m.isGameOver()){
-        	char move = sc.next().charAt(0);
+			if(playerName.equals("human")){
+				move = sc.next().charAt(0);
+			}
+			if(playerName.equals("AI")){
+				move = play.getMove(m);
+			}
         	if((move == 'N'|| move == 'n')&&(r.containsDirection("North"))){
 				play.movePosition(m, move);
 				r = m.mazeBoard[m.getX()][m.getY()];
@@ -80,6 +92,7 @@ public class Main{
         	}
 		}
 		long endTime = System.nanoTime();
-		System.out.println("Congratulations, you made it out of the maze and this journey took you "+ ((endTime - startTime)/1000000000) + " seconds!");
+		System.out.println("Congratulations, " + playerName +". You made it out of the maze and this journey took you "+ ((endTime - startTime)/1000000000) + " seconds!");
+		System.out.println("During this game, you visited " + m.gameLog.size()+ " rooms to get to the destination.");
     }
 }
