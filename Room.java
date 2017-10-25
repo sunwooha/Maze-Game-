@@ -8,14 +8,14 @@ public class Room{
     final String[] orientation2 = {"East", "South", "West", "North"};
     final String[] orientation3 = {"South", "West", "North", "East"};
     final String[] orientation4 = {"West", "North", "East", "South"};
-
+        
     public Room(int exits, int orientation){
         this.exits = exits;
         this.orientation = orientation;
-        //orientation can be 1, 2, 3, 4, 5, or 6
         this.setDirections();
     }
 
+    // finds all the directions the user can move towards in this room
     private void setDirections(){
         //orientation can only be either 1, 2, 3, 4, or 5, 6
         //if it is 5, there are two exits at North and South
@@ -56,10 +56,11 @@ public class Room{
         }
     }
 
+    // returns an array that holds all of the directions the user can move towards in this room
     public String[] getDirections(){
         return directions;	
     }
-
+    // returns true or false based on if the input string is in directions
     public boolean containsDirection(String c){
         List<String> list = Arrays.asList(this.getDirections());
         if(list.contains(c)){
@@ -67,13 +68,13 @@ public class Room{
         }
         return false;
     }
-    
+    // returns the orientation of the room
     public int getOrientation(){
     	return this.orientation;
     }
 
+    // will use the directions[] array to draw the rooms in ascii
     public void drawRoom(){
-        //will use the directions[] array to draw the rooms in ascii
         switch(exits){
             case 0:
                 System.out.println("+--------------------------+");

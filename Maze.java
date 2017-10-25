@@ -2,7 +2,6 @@ import java.util.*;
 
 public class Maze{
     private int dimension;
-    private boolean gameOver;
     private MazeFactory mFactory;
     public Room[][] mazeBoard;
     public Player play;

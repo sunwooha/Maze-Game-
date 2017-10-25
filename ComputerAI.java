@@ -5,6 +5,7 @@ public class ComputerAI extends Player {
 	public ComputerAI(){
 	}
 
+	// Since we cannot use the scanner to gather input for AI, we will randomly generate the chars.
 	public char getMove(Maze m){
 		Random rand = new Random();
 		String[] dir = m.mazeBoard[m.getX()][m.getY()].getDirections();

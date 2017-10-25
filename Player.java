@@ -1,6 +1,6 @@
-
 public abstract class Player {
 	
+	// Takes a char of N, S, E or W to move the player
 	public void movePosition(Maze m, char there){
 		int currentX = m.getX();
 		int currentY = m.getY();
@@ -32,5 +32,7 @@ public abstract class Player {
 		m.setX(currentX);
 		m.setY(currentY);
 	}
+
+	// abstract function to get the char for movePosition
 	abstract public char getMove(Maze m);
 }

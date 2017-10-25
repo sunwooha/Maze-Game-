@@ -19,7 +19,6 @@ public class Main{
         int y = m.getY();
 		Room r = m.mazeBoard[x][y];
 		String playerName = "";
-		Random random = new Random();
 		char move = 'z';
        
         for(int i = 0; i < m.getDimension(); i++){
