@@ -16,19 +16,6 @@ public class Room{
         this.setDirections();
     }
 
-    public void putPlayerHere(){
-        playerHere = true;
-        visited = true;
-    }
-
-    public void playerLeaves(){
-        playerHere = false;
-    }
-
-    public boolean isPlayerHere(){
-        return playerHere;
-    }
-
     private void setDirections(){
         //orientation can only be either 1, 2, 3, 4, or 5, 6
         //if it is 5, there are two exits at North and South
@@ -69,12 +56,25 @@ public class Room{
         }
     }
 
-    public String[] whichDir(){
-        return directions;
+    public String[] getDirections(){
+        return directions;	
     }
 
-    public boolean hasVisited(){
-        return visited;
+    public boolean containsDirection(String c){
+    	String value = c.toUpperCase();
+    	for(int i = 0; i < (this.getDirections()).length; i++){
+    		for(int j = 0; j < (this.getDirections()).length; j++){
+    			System.out.println(this.getDirections()[j].substring(0, 1 ));
+    			if(this.getDirections()[j].substring(0, 1).equals(value)){
+    				return true;
+    			}
+    		} 		
+    	}
+    	return false;
+    }
+    
+    public int getOrientation(){
+    	return this.orientation;
     }
 
     public void drawRoom(){
