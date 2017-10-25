@@ -9,6 +9,6 @@ The level mazes are named:
 + **level1.txt**
 + and **level2.txt**  
 
-These level mazes have a dimension of **12** so **please** input 12 as the first argument if you choose to load the level maze. If you choose the **tester.txt**, please input **4** as the first argument.  
+These level mazes have a dimension of **12** so **please** input 12 as the first argument if you choose to load the level mazes. If you choose the test maze, **tester.txt**, please input **4** as the first argument.  
 
 An example of running this code on the command line would be: **java Main 12 level0.txt**
