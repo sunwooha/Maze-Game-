@@ -60,6 +60,15 @@ public class Main{
 
 		long startTime = System.nanoTime();
         while(!m.isGameOver()){
+			System.out.print("You have the option of going ");
+			for(int n = 0; n < r.getDirections().length; n++){
+				if(n != r.getDirections().length -1){
+					System.out.print(r.getDirections()[n] + " or ");
+				}
+				else{
+					System.out.print(r.getDirections()[n]);
+				}
+			}
 			if(playerName.equals("human")){
 				move = sc.next().charAt(0);
 			}
@@ -67,21 +76,25 @@ public class Main{
 				move = play.getMove(m);
 			}
         	if((move == 'N'|| move == 'n')&&(r.containsDirection("North"))){
+				System.out.println("You have chosen to go north!");
 				play.movePosition(m, move);
 				r = m.mazeBoard[m.getX()][m.getY()];
 				m.gameLog.add("N");
         	}
         	else if((move == 'S' || move == 's')&& (r.containsDirection("South"))){
+				System.out.println("You have chosen to go south!");
 				play.movePosition(m, move);
 				r = m.mazeBoard[m.getX()][m.getY()];
 				m.gameLog.add("S");
         	}
         	else if((move == 'E' || move == 'e')&&(r.containsDirection("East"))){
+				System.out.println("You have chosen to go east!");
 				play.movePosition(m, move);
 				r = m.mazeBoard[m.getX()][m.getY()];
 				m.gameLog.add("E");
         	}
         	else if((move == 'W' || move == 'w')&&(r.containsDirection("West"))){
+				System.out.println("You have chosen to go west!");
 				play.movePosition(m,move);
 				r = m.mazeBoard[m.getX()][m.getY()];
 				m.gameLog.add("W");
