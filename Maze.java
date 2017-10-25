@@ -28,7 +28,12 @@ public class Maze{
 
     // Returns a boolean that represents if the game is over or not
     public boolean isGameOver(){
-        return gameOver;  
+        if(this.getX() == (this.getDimension()-1) && this.getY() == (this.getDimension()-1)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // Returns the array that contains string inputs from the maze file

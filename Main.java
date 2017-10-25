@@ -4,33 +4,28 @@ public class Main{
 	
 	private static Scanner sc = new Scanner(System.in);
 
-    public static void main(String argv[]){
-        String level0 = "level0.txt";
-        String level1 = "level1.txt";
-        String level2 = "level2.txt";
-        Maze m = new Maze(12, level0);
+    public static void main(String args[]){
+		// The main class takes in two arguments, the dimension of the maze and the .txt file 
+		// of the maze! We have provided 3 level mazes and one test maze. 
+		// The level mazes are named: level0.txt, level1.txt, and level2.txt
+		// These level mazes have a dimension of 12 so please input 12 as the first argument if
+		// you choose to load the level maze. 
+		// If you choose the tester.txt, please input 4 as the first argument.
+		// One example of running this code would be: java Main 12 level0.txt
+
+        Maze m = new Maze(Integer.parseInt(args[0]), args[1]);
         Player play;
         int x = m.getX();
         int y = m.getY();
-        Room r = m.mazeBoard[x][y];
+		Room r = m.mazeBoard[x][y];
        
         for(int i = 0; i < m.getDimension(); i++){
             System.out.println(m.getMaze()[i]);
-        }
-        
-//        for(int j = 0; j < m.getDimension(); j++){
-//            for(int k = 0; k < m.getDimension(); k++){
-//                Room r = m.mazeBoard[j][k];
-//                System.out.println(Arrays.toString(r.getDirections()[k]));
-//            }
-//        }
-//        
-        
+        }  
         
         System.out.println("Before we begin, I must know, are you human or hardware?" +
         		"\n" + "Enter 'H' for 'Human' or 'M' for 'Machine.'");
         char playerType = sc.next().charAt(0);     
-        
         
         if(playerType == 'H'|| playerType == 'h'){
         	play = new HumanPlayer();  
@@ -55,29 +50,36 @@ public class Main{
         	}
         }
         
-        m.drawMazeRoom();
-        System.out.println(r.containsDirection("E"));
-        
+		m.drawMazeRoom();
+        long startTime = System.nanoTime();
         while(!m.isGameOver()){
         	char move = sc.next().charAt(0);
-        	if((move == 'N'|| move == 'n')&&(r.containsDirection("N"))){
-        		play.movePosition(m, move);
+        	if((move == 'N'|| move == 'n')&&(r.containsDirection("North"))){
+				play.movePosition(m, move);
+				r = m.mazeBoard[m.getX()][m.getY()];
+				m.gameLog.add("N");
         	}
-        	else if((move == 'S' || move == 's')&& (r.containsDirection("S"))){
-        		play.movePosition(m, move);
+        	else if((move == 'S' || move == 's')&& (r.containsDirection("South"))){
+				play.movePosition(m, move);
+				r = m.mazeBoard[m.getX()][m.getY()];
+				m.gameLog.add("S");
         	}
-        	else if((move == 'E' || move == 'e')&&(r.containsDirection("E"))){
-        		play.movePosition(m, move);
+        	else if((move == 'E' || move == 'e')&&(r.containsDirection("East"))){
+				play.movePosition(m, move);
+				r = m.mazeBoard[m.getX()][m.getY()];
+				m.gameLog.add("E");
         	}
-        	else if((move == 'W' || move == 'w')&&(r.containsDirection("W"))){
-        		play.movePosition(m,move);
+        	else if((move == 'W' || move == 'w')&&(r.containsDirection("West"))){
+				play.movePosition(m,move);
+				r = m.mazeBoard[m.getX()][m.getY()];
+				m.gameLog.add("W");
         	}
         	else{
         		System.out.println("I'm sorry, that's not a valid move. Please try again.");
         		continue;
         	}
-        }
-        
-        
+		}
+		long endTime = System.nanoTime();
+		System.out.println("Congratulations, you made it out of the maze and this journey took you "+ ((endTime - startTime)/1000000000) + " seconds!");
     }
 }

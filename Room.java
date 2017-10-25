@@ -1,8 +1,8 @@
+import java.util.*;
+
 public class Room{
     public int exits;
     private String[] directions;
-    private boolean playerHere;
-    private boolean visited;
     public int orientation;
     final String[] orientation1 = {"North", "East", "South", "West"};
     final String[] orientation2 = {"East", "South", "West", "North"};
@@ -61,16 +61,11 @@ public class Room{
     }
 
     public boolean containsDirection(String c){
-    	String value = c.toUpperCase();
-    	for(int i = 0; i < (this.getDirections()).length; i++){
-    		for(int j = 0; j < (this.getDirections()).length; j++){
-    			System.out.println(this.getDirections()[j].substring(0, 1 ));
-    			if(this.getDirections()[j].substring(0, 1).equals(value)){
-    				return true;
-    			}
-    		} 		
-    	}
-    	return false;
+        List<String> list = Arrays.asList(this.getDirections());
+        if(list.contains(c)){
+            return true;
+        }
+        return false;
     }
     
     public int getOrientation(){
