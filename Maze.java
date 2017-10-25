@@ -8,6 +8,7 @@ public class Maze{
     public int x;
     public int y;
     public String file;
+    public boolean gameOver;
     public LinkedList<String> gameLog = new LinkedList<String>();
 
     // Takes in a dimension of the maze and the path to the text file that contains the layout of the maze
