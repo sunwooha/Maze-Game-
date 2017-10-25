@@ -151,5 +151,12 @@ public class Main{
 		long endTime = System.nanoTime();
 		System.out.println("Congratulations, " + playerName +". You made it out of the maze and this journey took you "+ ((endTime - startTime)/1000000000) + " seconds!");
 		System.out.println("During this game, you visited " + m.gameLog.size()+ " rooms to get to the destination.");
+		try{
+			FileWriter fileWriter = new FileWriter("save.txt");
+			fileWriter.flush();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 }
